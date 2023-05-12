@@ -3,6 +3,7 @@ import 'package:network_layar_intro/data/model/covid_model.dart';
 import 'package:network_layar_intro/data/model/covid_model_impl.dart';
 import 'package:network_layar_intro/data/vos/country_vo/country_vo.dart';
 import 'package:network_layar_intro/data/vos/global_vo/global_vo.dart';
+import 'package:network_layar_intro/pages/screen_2.dart';
 
 final CovidModel _covidModel = CovidModelImpl();
 
@@ -12,6 +13,13 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => Screen2()));
+        },
+        child: const Icon(Icons.add),
+      ),
       appBar: AppBar(
         title: const Text('Covid Summary'),
       ),
