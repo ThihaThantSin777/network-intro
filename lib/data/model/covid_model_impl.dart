@@ -17,9 +17,7 @@ class CovidModelImpl extends CovidModel {
   final CovidDataAgent _covidDataAgent = CovidDataAgentImpl();
 
   @override
-  Future<List<CountriesVO>?> getCountries() => _covidDataAgent
-      .getCountryList()
-      .catchError((error) => print("Error===>$error"));
+  Future<List<CountriesVO>?> getCountries() => _covidDataAgent.getCountryList();
 
   @override
   Future<GlobalVO?> getGlobals() => _covidDataAgent.getGlobal().then((value) {
@@ -29,5 +27,5 @@ class CovidModelImpl extends CovidModel {
         final convertDateObject = DateTime.parse(globalDate);
         global?.date = dateFormat.format(convertDateObject);
         return global;
-      }).catchError((error) => print("Error===>$error"));
+      });
 }
